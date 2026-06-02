@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useMemo, useState } from "react";
 import { Heart, Music, Gift, Check, Sparkles, Calendar, MapPin } from "lucide-react";
 import bg from "@/assets/romantic-bg.jpg";
+import { Pedido } from "@/components/Pedido";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -421,6 +422,11 @@ function Curiosidades() {
 }
 
 function Index() {
+  const [entrou, setEntrou] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (sessionStorage.getItem("aceitou") === "1") setEntrou(true);
+  }, []);
   const t = useTempoJuntos();
   const stats = useMemo(
     () => [
@@ -433,7 +439,18 @@ function Index() {
   );
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-background text-foreground">
+    <>
+      <AnimatePresence>
+        {!entrou && (
+          <Pedido
+            onAceito={() => {
+              sessionStorage.setItem("aceitou", "1");
+              setEntrou(true);
+            }}
+          />
+        )}
+      </AnimatePresence>
+      <main className="relative min-h-screen overflow-hidden bg-background text-foreground">
       <img
         src={bg}
         alt=""
@@ -558,5 +575,6 @@ function Index() {
         </motion.div>
       </section>
     </main>
+    </>
   );
 }
