@@ -481,26 +481,6 @@ function Index() {
       </section>
 
       {/* MUSICA */}
-      <section className="relative mx-auto max-w-2xl px-5 py-20">
-        <Card className="p-5">
-          <div className="mb-4 flex items-center justify-center gap-2 text-primary">
-            <Music className="h-4 w-4" />
-            <span className="text-[11px] uppercase tracking-[0.3em]">A nossa música</span>
-          </div>
-          <div className="overflow-hidden rounded-xl">
-            <iframe
-              title="Nossa música"
-              src={`https://open.spotify.com/embed/track/${SPOTIFY_TRACK_ID}?utm_source=generator&theme=0`}
-              width="100%"
-              height="152"
-              frameBorder={0}
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-            />
-          </div>
-        </Card>
-      </section>
-
       <Polaroids />
       <Timeline />
       <CartaUmAno />
@@ -531,6 +511,28 @@ function Index() {
             </motion.div>
           ))}
         </div>
+      </section>
+
+      {/* MUSICA */}
+      <section className="relative mx-auto max-w-2xl px-5 pb-20">
+        <SectionTitle>A nossa música</SectionTitle>
+        <Card className="p-5">
+          <div className="mb-4 flex items-center justify-center gap-2 text-primary">
+            <Music className="h-4 w-4" />
+            <span className="text-[11px] uppercase tracking-[0.3em]">play</span>
+          </div>
+          <div className="overflow-hidden rounded-xl">
+            <iframe
+              title="Nossa música"
+              src={`https://open.spotify.com/embed/track/${SPOTIFY_TRACK_ID}?utm_source=generator&theme=0`}
+              width="100%"
+              height="152"
+              frameBorder={0}
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            />
+          </div>
+        </Card>
       </section>
 
       {/* FINAL */}
