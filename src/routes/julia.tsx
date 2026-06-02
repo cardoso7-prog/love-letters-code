@@ -34,8 +34,8 @@ function JuliaPage() {
         style={{ transform: "translate(-50%, -50%)" }}
       >
         <motion.div
-          animate={{ scale: [1, 1.04, 1] }}
-          transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+          animate={{ rotate: 360 }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
           style={{ position: "relative", width: "min(90vw, 90vh)", height: "min(90vw, 90vh)" }}
         >
           {POINTS.map((p, i) => {
@@ -44,17 +44,9 @@ function JuliaPage() {
             return (
               <motion.span
                 key={i}
-                initial={{ opacity: 0, scale: 0.6 }}
-                animate={{
-                  opacity: [0.7, 1, 0.7],
-                  scale: [1, 1.08, 1],
-                }}
-                transition={{
-                  duration: 2.2,
-                  repeat: Infinity,
-                  delay: (i / N) * 1.8,
-                  ease: "easeInOut",
-                }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.9 }}
+                transition={{ duration: 1.2, delay: (i / N) * 1.2 }}
                 style={{
                   position: "absolute",
                   left: `${left}%`,
