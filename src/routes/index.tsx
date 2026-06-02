@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useMemo, useState } from "react";
 import { Heart, Music, Gift, Check, Sparkles, Calendar, MapPin } from "lucide-react";
@@ -81,8 +82,9 @@ const CURIOSIDADES = [
 // ===================================================
 
 function useTempoJuntos() {
-  const [t, setT] = useState(() => calc());
+  const [t, setT] = useState({ dias: 0, horas: 0, min: 0, seg: 0 });
   useEffect(() => {
+    setT(calc());
     const i = setInterval(() => setT(calc()), 1000);
     return () => clearInterval(i);
   }, []);
@@ -309,51 +311,24 @@ function Motivos() {
 }
 
 function CaixaSurpresa() {
-  const [aberta, setAberta] = useState(false);
   return (
     <section className="relative mx-auto max-w-2xl px-5 pb-20">
       <SectionTitle>Caixa surpresa</SectionTitle>
       <Card className="overflow-hidden p-6 sm:p-8">
         <div className="flex flex-col items-center text-center">
-          <motion.button
-            onClick={() => setAberta(true)}
-            disabled={aberta}
-            whileHover={{ scale: aberta ? 1 : 1.05 }}
-            whileTap={{ scale: aberta ? 1 : 0.95 }}
-            animate={aberta ? { rotate: [0, -8, 8, -4, 4, 0] } : { y: [0, -4, 0] }}
-            transition={aberta ? { duration: 0.6 } : { duration: 2, repeat: Infinity }}
-            className="relative flex h-32 w-32 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary/60 shadow-2xl shadow-primary/40"
+          <motion.div
+            animate={{ y: [0, -4, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
           >
-            <Gift className="h-14 w-14 text-primary-foreground" />
-            <div className="absolute -inset-1 -z-10 rounded-2xl bg-primary/40 blur-xl" />
-          </motion.button>
-
-          <AnimatePresence>
-            {!aberta ? (
-              <motion.p
-                key="fechada"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="mt-5 text-sm text-foreground/70"
-              >
-                Toque para abrir o seu presentinho ✨
-              </motion.p>
-            ) : (
-              <motion.div
-                key="aberta"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="mt-6"
-              >
-                <p className="text-base text-foreground/90 sm:text-lg" style={serif}>
-                  {SURPRESA.mensagem}
-                </p>
-                <p className="mt-4 text-[11px] uppercase tracking-[0.3em] text-primary">{SURPRESA.assinatura}</p>
-              </motion.div>
-            )}
-          </AnimatePresence>
+            <Link
+              to="/julia"
+              className="relative flex h-32 w-32 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary/60 shadow-2xl shadow-primary/40 transition-transform hover:scale-105 active:scale-95"
+            >
+              <Gift className="h-14 w-14 text-primary-foreground" />
+              <div className="absolute -inset-1 -z-10 rounded-2xl bg-primary/40 blur-xl" />
+            </Link>
+          </motion.div>
+          <p className="mt-5 text-sm text-foreground/70">Toque para abrir o seu presentinho ✨</p>
         </div>
       </Card>
     </section>
@@ -507,26 +482,6 @@ function Index() {
       </section>
 
       {/* MUSICA */}
-      <section className="relative mx-auto max-w-2xl px-5 py-20">
-        <Card className="p-5">
-          <div className="mb-4 flex items-center justify-center gap-2 text-primary">
-            <Music className="h-4 w-4" />
-            <span className="text-[11px] uppercase tracking-[0.3em]">A nossa música</span>
-          </div>
-          <div className="overflow-hidden rounded-xl">
-            <iframe
-              title="Nossa música"
-              src={`https://open.spotify.com/embed/track/${SPOTIFY_TRACK_ID}?utm_source=generator&theme=0`}
-              width="100%"
-              height="152"
-              frameBorder={0}
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-            />
-          </div>
-        </Card>
-      </section>
-
       <Polaroids />
       <Timeline />
       <CartaUmAno />
@@ -557,6 +512,28 @@ function Index() {
             </motion.div>
           ))}
         </div>
+      </section>
+
+      {/* MUSICA */}
+      <section className="relative mx-auto max-w-2xl px-5 pb-20">
+        <SectionTitle>A nossa música</SectionTitle>
+        <Card className="p-5">
+          <div className="mb-4 flex items-center justify-center gap-2 text-primary">
+            <Music className="h-4 w-4" />
+            <span className="text-[11px] uppercase tracking-[0.3em]">play</span>
+          </div>
+          <div className="overflow-hidden rounded-xl">
+            <iframe
+              title="Nossa música"
+              src={`https://open.spotify.com/embed/track/${SPOTIFY_TRACK_ID}?utm_source=generator&theme=0`}
+              width="100%"
+              height="152"
+              frameBorder={0}
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            />
+          </div>
+        </Card>
       </section>
 
       {/* FINAL */}
