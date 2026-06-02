@@ -422,6 +422,11 @@ function Curiosidades() {
 }
 
 function Index() {
+  const [entrou, setEntrou] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (sessionStorage.getItem("aceitou") === "1") setEntrou(true);
+  }, []);
   const t = useTempoJuntos();
   const stats = useMemo(
     () => [
@@ -434,7 +439,18 @@ function Index() {
   );
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-background text-foreground">
+    <>
+      <AnimatePresence>
+        {!entrou && (
+          <Pedido
+            onAceito={() => {
+              sessionStorage.setItem("aceitou", "1");
+              setEntrou(true);
+            }}
+          />
+        )}
+      </AnimatePresence>
+      <main className="relative min-h-screen overflow-hidden bg-background text-foreground">
       <img
         src={bg}
         alt=""
