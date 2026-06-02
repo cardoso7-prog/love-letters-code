@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useMemo, useState } from "react";
 import { Heart, Music, Gift, Check, Sparkles, Calendar, MapPin } from "lucide-react";
 import bg from "@/assets/romantic-bg.jpg";
+import { Pedido } from "@/components/Pedido";
 
 export const Route = createFileRoute("/")({
   head: () => ({
