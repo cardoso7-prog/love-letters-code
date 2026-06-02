@@ -82,8 +82,9 @@ const CURIOSIDADES = [
 // ===================================================
 
 function useTempoJuntos() {
-  const [t, setT] = useState(() => calc());
+  const [t, setT] = useState({ dias: 0, horas: 0, min: 0, seg: 0 });
   useEffect(() => {
+    setT(calc());
     const i = setInterval(() => setT(calc()), 1000);
     return () => clearInterval(i);
   }, []);
