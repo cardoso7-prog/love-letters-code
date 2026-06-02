@@ -575,5 +575,6 @@ function Index() {
         </motion.div>
       </section>
     </main>
+    </>
   );
 }
