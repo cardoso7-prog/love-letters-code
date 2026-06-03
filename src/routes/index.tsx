@@ -18,10 +18,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-// =================== TROQUE AQUI ===================
-const NOME_DELA = "Meu Amor";
-const NOME_DELE = "Seu Nome";
-const INICIO = new Date("2023-01-01T00:00:00");
+const NOME_DELA = 
 const SPOTIFY_TRACK_ID = "3AJwUDP919kvQ9QcozQPxg";
 
 const TEXTINHOS = [
