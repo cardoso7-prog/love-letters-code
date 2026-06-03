@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion } from "motion/react";
 import { ArrowLeft } from "lucide-react";
 import { useEffect, useState } from "react";
 
