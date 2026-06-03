@@ -21,7 +21,7 @@ export const Route = createFileRoute("/")({
 const NOME_DELA = "Julia";
 const NOME_DELE = "Yasmim";
 const INICIO = new Date("2025-05-27T00:00:00");
-const SPOTIFY_TRACK_ID = "3AJwUDP919kvQ9QcozQPxg";
+const SPOTIFY_TRACK_ID = "5JAgqLhhRqo5M1Xu7vrLD6";
 
 const TEXTINHOS = [
   { titulo: "Bom dia, amor", texto: "Acordar sabendo que você existe já faz o meu dia ficar bonito." },
@@ -217,63 +217,30 @@ function Timeline() {
   );
 }
 
-function CartaUmAno() {
-  const [aberta, setAberta] = useState(false);
+function CartaNamorados() {
   return (
     <section className="relative mx-auto max-w-2xl px-5 pb-20">
-      <SectionTitle>Carta de 1 ano</SectionTitle>
+      <SectionTitle>Feliz Dia dos Namorados ❤️</SectionTitle>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <button
-          onClick={() => setAberta((v) => !v)}
-          className="group relative w-full overflow-hidden rounded-2xl border border-primary/40 bg-gradient-to-br from-primary/20 via-background/60 to-background/40 p-8 text-left shadow-2xl shadow-primary/20 backdrop-blur-md transition-transform hover:-translate-y-1"
+        <Link
+          to="/carta"
+          className="group relative block w-full overflow-hidden rounded-2xl border border-primary/40 bg-gradient-to-br from-primary/20 via-background/60 to-background/40 p-8 text-left shadow-2xl shadow-primary/20 backdrop-blur-md transition-transform hover:-translate-y-1"
           style={serif}
         >
           <div className="flex flex-col items-center gap-3 text-center">
             <div className="rounded-full border border-primary/40 bg-primary/20 p-3">
               <Heart fill="currentColor" className="h-6 w-6 text-primary" />
             </div>
-            <p className="text-[10px] uppercase tracking-[0.4em] text-primary">Aniversário de namoro</p>
-            <p className="text-2xl sm:text-3xl">{aberta ? "Pra você, com tudo que sou" : "Toque para abrir a carta"}</p>
+            <p className="text-[10px] uppercase tracking-[0.4em] text-primary">Uma carta pra você</p>
+            <p className="text-2xl sm:text-3xl">Feliz Dia dos Namorados ❤️</p>
+            <p className="text-xs text-foreground/60">Toque para abrir</p>
           </div>
-        </button>
-
-        <AnimatePresence>
-          {aberta && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.6 }}
-              className="overflow-hidden"
-            >
-              <Card className="mt-4 p-6 sm:p-8">
-                <p className="text-[10px] uppercase tracking-[0.4em] text-primary">Querida(o) {NOME_DELA},</p>
-                <div className="mt-4 space-y-4 text-foreground/85" style={serif}>
-                  <p>
-                    Um ano. Trezentos e sessenta e cinco dias dizendo "te amo" de jeitos diferentes — em bilhete, em
-                    beijo, em silêncio, em comida feita com carinho, em playlist mandada do nada.
-                  </p>
-                  <p>
-                    Obrigado(a) por cada manhã, cada briga boba, cada "vem cá", cada plano que a gente fez deitado
-                    olhando o teto. Você virou minha pessoa sem fazer esforço — e é a melhor coisa que já aconteceu
-                    comigo.
-                  </p>
-                  <p>
-                    Que venham muitos anos. Eu te escolho, te escolho de novo, e ainda escolheria mil vezes.
-                  </p>
-                </div>
-                <p className="mt-6 text-right text-sm italic text-primary" style={serif}>
-                  Com tudo que sou, {NOME_DELE}.
-                </p>
-              </Card>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        </Link>
       </motion.div>
     </section>
   );
@@ -489,7 +456,7 @@ function Index() {
       {/* MUSICA */}
       <Polaroids />
       <Timeline />
-      <CartaUmAno />
+      <CartaNamorados />
       <Motivos />
       <CaixaSurpresa />
       <Sonhos />
