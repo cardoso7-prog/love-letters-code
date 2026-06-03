@@ -15,14 +15,11 @@ export const Route = createFileRoute("/julia")({
 const N = 64;
 
 function heartAt(u: number) {
-  // u in [0,1)
+  // u in [0,1) — single continuous loop around the whole heart
   const t = u * Math.PI * 2;
   const x = 16 * Math.sin(t) ** 3;
   const y = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
-  const dx = 3 * 16 * Math.sin(t) ** 2 * Math.cos(t);
-  const dy = -(-13 * Math.sin(t) + 10 * Math.sin(2 * t) + 6 * Math.sin(3 * t) + 4 * Math.sin(4 * t));
-  const angle = (Math.atan2(dy, dx) * 180) / Math.PI;
-  return { x, y, angle };
+  return { x, y };
 }
 
 function JuliaPage() {
@@ -61,7 +58,7 @@ function JuliaPage() {
                   position: "absolute",
                   left: `${left}%`,
                   top: `${top}%`,
-                  transform: `translate(-50%, -50%) rotate(${p.angle + 90}deg)`,
+                  transform: "translate(-50%, -50%)",
                   fontFamily: "'Playfair Display', Georgia, serif",
                   fontWeight: 700,
                   fontSize: "clamp(14px, 3.2vmin, 36px)",
