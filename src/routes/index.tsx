@@ -18,7 +18,9 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const NOME_DELA = 
+const NOME_DELA = "Julia";
+const NOME_DELE = "Yasmim";
+const INICIO = new Date("2025-05-27T00:00:00");
 const SPOTIFY_TRACK_ID = "3AJwUDP919kvQ9QcozQPxg";
 
 const TEXTINHOS = [
