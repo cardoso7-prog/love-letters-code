@@ -21,7 +21,7 @@ export const Route = createFileRoute("/")({
 const NOME_DELA = "Julia";
 const NOME_DELE = "Yasmim";
 const INICIO = new Date("2025-05-27T00:00:00");
-const SPOTIFY_TRACK_ID = "3AJwUDP919kvQ9QcozQPxg";
+const SPOTIFY_TRACK_ID = "5JAgqLhhRqo5M1Xu7vrLD6";
 
 const TEXTINHOS = [
   { titulo: "Bom dia, amor", texto: "Acordar sabendo que você existe já faz o meu dia ficar bonito." },
