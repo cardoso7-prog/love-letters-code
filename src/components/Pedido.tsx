@@ -56,7 +56,7 @@ export function Pedido({ onAceito }: { onAceito: () => void }) {
                 className="mt-6 font-serif text-3xl leading-tight sm:text-5xl"
                 style={serif}
               >
-                Você aceita namorar comigo?
+                Amor, casa comigo? ❤️
               </h1>
 
               <div className="relative mt-12 flex w-full max-w-sm items-center justify-center gap-4">
