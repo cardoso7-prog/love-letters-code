@@ -456,7 +456,7 @@ function Index() {
       {/* MUSICA */}
       <Polaroids />
       <Timeline />
-      <CartaUmAno />
+      <CartaNamorados />
       <Motivos />
       <CaixaSurpresa />
       <Sonhos />
