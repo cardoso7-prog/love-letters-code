@@ -18,10 +18,9 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-// =================== TROQUE AQUI ===================
-const NOME_DELA = "Meu Amor";
-const NOME_DELE = "Seu Nome";
-const INICIO = new Date("2023-01-01T00:00:00");
+const NOME_DELA = "Julia";
+const NOME_DELE = "Yasmim";
+const INICIO = new Date("2025-05-27T00:00:00");
 const SPOTIFY_TRACK_ID = "3AJwUDP919kvQ9QcozQPxg";
 
 const TEXTINHOS = [
@@ -39,9 +38,10 @@ const POLAROIDS = [
 ];
 
 const TIMELINE = [
-  { data: "Dia 01", titulo: "A gente se conheceu", desc: "O começo de tudo. Eu não sabia, mas minha vida já tinha mudado.", emoji: "✨" },
-  { data: "Mês 01", titulo: "Primeiro 'eu te amo'", desc: "Saiu tremido, mas era a verdade mais bonita que eu já tinha falado.", emoji: "💌" },
-  { data: "Mês 06", titulo: "Nossa primeira viagem", desc: "Descobri que casa é onde você estiver.", emoji: "🧳" },
+  { data: "27/05/2025", titulo: "A gente se conheceu", desc: "O começo de tudo. Eu não sabia, mas minha vida já tinha mudado.", emoji: "✨" },
+  { data: "02/06/2025", titulo: "Nossa primeira conversa pessoalmente", desc: "O dia em que eu te vi de perto e tudo começou a ficar ainda mais especial.", emoji: "💌" },
+  { data: "26/10/2025", titulo: "Primeiro 'eu te amo'", desc: "Saiu do coração, porque eu já não conseguia guardar só pra mim.", emoji: "💋" },
+  { data: "17/12/2025", titulo: "Nosso primeiro beijo", desc: "Um momento que eu nunca vou esquecer.", emoji: "💋" },
   { data: "Hoje", titulo: "A gente, sempre", desc: "Cada dia escolhendo você de novo.", emoji: "💞" },
 ];
 
@@ -64,20 +64,25 @@ const SURPRESA = {
 };
 
 const SONHOS = [
-  { texto: "Viajar pra praia juntinhos", feito: true },
-  { texto: "Acampar e ver as estrelas", feito: false },
-  { texto: "Aprender uma receita nova", feito: true },
-  { texto: "Maratonar nossa série favorita", feito: false },
-  { texto: "Ter uma plantinha que sobreviva", feito: false },
-  { texto: "Fazer aquela viagem dos sonhos", feito: false },
+  { texto: "Viajar juntas", feito: false },
+  { texto: "Fazer uma noite de filmes e séries", feito: false },
+  { texto: "Tirar fotos combinando", feito: false },
+  { texto: "Sair só nós duas", feito: false },
+  { texto: "Construir nossa casa", feito: false },
+  { texto: "Ter uma noite só nossa", feito: false },
+  { texto: "Fazer uma viagem dos sonhos", feito: false },
+  { texto: "Criar mais memórias juntas", feito: false },
 ];
 
 const CURIOSIDADES = [
-  { icone: "🎵", titulo: "Música nova", desc: "Hoje eu ouço músicas que jurava que não eram minha cara — porque viraram nossas." },
-  { icone: "🍜", titulo: "Comida favorita", desc: "Aprendi a gostar de coisa que eu nem provava antes de você." },
-  { icone: "💬", titulo: "Jeito de falar", desc: "Roubei umas expressões suas. Agora são minhas também." },
-  { icone: "🌱", titulo: "Mudança boa", desc: "Aprendi a ter mais paciência, mais calma, mais coração." },
-  { icone: "🌙", titulo: "Rotina nova", desc: "Boa noite virou ritual. Bom dia também." },
+  { icone: "🎵", titulo: "Música nova", desc: "Hoje tem músicas que eu só escuto porque me lembram você." },
+  { icone: "💬", titulo: "Jeito de falar", desc: "Peguei suas manias, suas palavras e até seu jeitinho." },
+  { icone: "🧘", titulo: "Minha mente tranquila", desc: "Você tem o dom de acalmar a minha mente quando ela faz barulho demais." },
+  { icone: "🌙", titulo: "Rotina nova", desc: "Bom dia e boa noite viraram parte favorita do meu dia." },
+  { icone: "💌", titulo: "Saudade", desc: "Aprendi que sentir saudade também é uma forma bonita de amar." },
+  { icone: "❤️", titulo: "Amor de verdade", desc: "Com você, eu entendi que amor é cuidado, escolha e presença." },
+  { icone: "🏠", titulo: "Planos", desc: "Antes eu pensava só no agora. Com você, comecei a imaginar o futuro." },
+  { icone: "✨", titulo: "Meu melhor lado", desc: "Você despertou uma versão mais carinhosa, boba e feliz de mim." },
 ];
 // ===================================================
 
