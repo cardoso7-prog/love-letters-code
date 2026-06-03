@@ -38,9 +38,10 @@ const POLAROIDS = [
 ];
 
 const TIMELINE = [
-  { data: "Dia 01", titulo: "A gente se conheceu", desc: "O começo de tudo. Eu não sabia, mas minha vida já tinha mudado.", emoji: "✨" },
-  { data: "Mês 01", titulo: "Primeiro 'eu te amo'", desc: "Saiu tremido, mas era a verdade mais bonita que eu já tinha falado.", emoji: "💌" },
-  { data: "Mês 06", titulo: "Nossa primeira viagem", desc: "Descobri que casa é onde você estiver.", emoji: "🧳" },
+  { data: "27/05/2025", titulo: "A gente se conheceu", desc: "O começo de tudo. Eu não sabia, mas minha vida já tinha mudado.", emoji: "✨" },
+  { data: "02/06/2025", titulo: "Nossa primeira conversa pessoalmente", desc: "O dia em que eu te vi de perto e tudo começou a ficar ainda mais especial.", emoji: "💌" },
+  { data: "26/10/2025", titulo: "Primeiro 'eu te amo'", desc: "Saiu do coração, porque eu já não conseguia guardar só pra mim.", emoji: "💋" },
+  { data: "17/12/2025", titulo: "Nosso primeiro beijo", desc: "Um momento que eu nunca vou esquecer.", emoji: "💋" },
   { data: "Hoje", titulo: "A gente, sempre", desc: "Cada dia escolhendo você de novo.", emoji: "💞" },
 ];
 
