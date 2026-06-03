@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion } from "motion/react";
 import { ArrowLeft } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/julia")({
   head: () => ({
@@ -13,40 +13,50 @@ export const Route = createFileRoute("/julia")({
 });
 
 const N = 64;
-const POINTS = Array.from({ length: N }, (_, i) => {
-  const t = (i / N) * Math.PI * 2;
+
+function heartAt(u: number) {
+  // u in [0,1)
+  const t = u * Math.PI * 2;
   const x = 16 * Math.sin(t) ** 3;
   const y = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
-  // tangent angle for rotation
   const dx = 3 * 16 * Math.sin(t) ** 2 * Math.cos(t);
   const dy = -(-13 * Math.sin(t) + 10 * Math.sin(2 * t) + 6 * Math.sin(3 * t) + 4 * Math.sin(4 * t));
   const angle = (Math.atan2(dy, dx) * 180) / Math.PI;
-  return { x, y, angle, t };
-});
+  return { x, y, angle };
+}
 
 function JuliaPage() {
-  // heart bounds: x in [-16,16], y in [-17,12] roughly
-  const SCALE = 1.4; // vmin units per heart-unit baseline... we'll use calc
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    let raf = 0;
+    const start = performance.now();
+    const DURATION = 18000; // ms per full lap
+    const tick = (now: number) => {
+      setOffset((((now - start) / DURATION) % 1));
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
   return (
     <main className="relative min-h-screen overflow-hidden bg-black text-[#c084fc]">
       <div
         className="pointer-events-none absolute left-1/2 top-1/2"
         style={{ transform: "translate(-50%, -50%)" }}
       >
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+        <div
           style={{ position: "relative", width: "min(90vw, 90vh)", height: "min(90vw, 90vh)" }}
         >
-          {POINTS.map((p, i) => {
+          {Array.from({ length: N }).map((_, i) => {
+            const u = ((i / N) + offset) % 1;
+            const p = heartAt(u);
             const left = 50 + (p.x / 18) * 45;
             const top = 50 + (p.y / 18) * 45;
             return (
-              <motion.span
+              <span
                 key={i}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 0.9 }}
-                transition={{ duration: 1.2, delay: (i / N) * 1.2 }}
                 style={{
                   position: "absolute",
                   left: `${left}%`,
@@ -57,16 +67,18 @@ function JuliaPage() {
                   fontSize: "clamp(14px, 3.2vmin, 36px)",
                   letterSpacing: "0.12em",
                   color: "#c084fc",
+                  opacity: 0.9,
                   textShadow:
                     "0 0 8px rgba(192,132,252,0.9), 0 0 18px rgba(168,85,247,0.7), 0 0 32px rgba(126,34,206,0.6)",
                   whiteSpace: "nowrap",
+                  willChange: "left, top, transform",
                 }}
               >
                 JULIA
-              </motion.span>
+              </span>
             );
           })}
-        </motion.div>
+        </div>
       </div>
 
       <Link
