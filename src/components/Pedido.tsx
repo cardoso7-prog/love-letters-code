@@ -49,11 +49,8 @@ export function Pedido({ onAceito }: { onAceito: () => void }) {
               className="flex flex-col items-center"
             >
               <Heart fill="currentColor" className="mb-6 h-10 w-10 text-primary" />
-              <p className="max-w-md text-base text-foreground/85 sm:text-lg" style={serif}>
-                Eu não consegui te pedir pessoalmente, mas vou te pedir por aqui... ❤️
-              </p>
               <h1
-                className="mt-6 font-serif text-3xl leading-tight sm:text-5xl"
+                className="mt-2 font-serif text-3xl leading-tight sm:text-5xl"
                 style={serif}
               >
                 Amor, casa comigo? ❤️
@@ -87,10 +84,6 @@ export function Pedido({ onAceito }: { onAceito: () => void }) {
                   NÃO 😔
                 </motion.button>
               </div>
-
-              <p className="mt-10 text-[10px] uppercase tracking-[0.3em] text-foreground/50">
-                dica: tenta clicar no não 👀
-              </p>
             </motion.div>
           ) : (
             <motion.div
