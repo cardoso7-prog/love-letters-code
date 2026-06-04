@@ -30,13 +30,6 @@ const TEXTINHOS = [
   { titulo: "Antes de dormir", texto: "Boa noite, meu amor. Sonha comigo, que eu já tô sonhando com você." },
 ];
 
-const POLAROIDS = [
-  { emoji: "🌅", legenda: "Nosso primeiro pôr do sol", data: "Verão" },
-  { emoji: "🍦", legenda: "Sorvete às 23h", data: "Aquela noite" },
-  { emoji: "🎡", legenda: "Risada que não acabava", data: "Domingo" },
-  { emoji: "🌧️", legenda: "Chuva e a gente", data: "Inverno" },
-];
-
 const TIMELINE = [
   { data: "27/05/2025", titulo: "A gente se conheceu", desc: "O começo de tudo. Eu não sabia, mas minha vida já tinha mudado.", emoji: "✨" },
   { data: "02/06/2025", titulo: "Nossa primeira conversa pessoalmente", desc: "O dia em que eu te vi de perto e tudo começou a ficar ainda mais especial.", emoji: "💌" },
