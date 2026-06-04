@@ -16,6 +16,43 @@ export const Route = createFileRoute("/carta")({
 
 const serif = { fontFamily: "'Playfair Display', Georgia, serif" } as const;
 
+const POLAROIDS = [
+  { emoji: "🌅", legenda: "Nosso primeiro pôr do sol", data: "Verão" },
+  { emoji: "🍦", legenda: "Sorvete às 23h", data: "Aquela noite" },
+  { emoji: "🎡", legenda: "Risada que não acabava", data: "Domingo" },
+  { emoji: "🌧️", legenda: "Chuva e a gente", data: "Inverno" },
+];
+
+function Memorias() {
+  const rotations = ["-rotate-3", "rotate-2", "-rotate-1", "rotate-3"];
+  return (
+    <section className="mt-14">
+      <h2 className="mb-8 text-center font-serif text-2xl sm:text-3xl" style={serif}>
+        Nossas memórias favoritas
+      </h2>
+      <div className="grid grid-cols-2 gap-4 sm:gap-6">
+        {POLAROIDS.map((p, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: i * 0.1 }}
+            whileHover={{ scale: 1.04, rotate: 0 }}
+            className={`${rotations[i % rotations.length]} bg-foreground/95 p-3 pb-5 shadow-2xl shadow-primary/30`}
+          >
+            <div className="flex aspect-square items-center justify-center bg-gradient-to-br from-primary/30 to-primary/10 text-5xl">
+              {p.emoji}
+            </div>
+            <p className="mt-3 text-center text-sm text-background" style={serif}>{p.legenda}</p>
+            <p className="text-center text-[10px] uppercase tracking-widest text-background/60">{p.data}</p>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function CartaPage() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-background text-foreground">
@@ -90,6 +127,8 @@ function CartaPage() {
             <p className="text-sm italic text-foreground/70">Da sua namorada bobona,</p>
             <p className="mt-1 font-serif text-2xl text-primary">Yasmim ❤️</p>
           </div>
+
+          <Memorias />
         </motion.article>
 
         <div className="mt-10 flex justify-center">
