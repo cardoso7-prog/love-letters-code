@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { Heart, ArrowLeft } from "lucide-react";
 import bg from "@/assets/romantic-bg.jpg";
+import juliaAsset from "@/assets/julia.jpeg.asset.json";
 
 export const Route = createFileRoute("/carta")({
   head: () => ({
@@ -14,9 +15,6 @@ export const Route = createFileRoute("/carta")({
 });
 
 const serif = { fontFamily: "'Playfair Display', Georgia, serif" } as const;
-
-// Substitua a URL abaixo pela foto da Julia
-const FOTO_JULIA = "/julia.jpg";
 
 function CartaPage() {
   return (
@@ -45,12 +43,15 @@ function CartaPage() {
         >
           <div className="relative">
             <div className="absolute -inset-2 -z-10 rounded-full bg-primary/30 blur-2xl" />
-            <img
-              src={FOTO_JULIA}
-              alt="Julia"
-              className="h-44 w-44 rounded-full border-4 border-primary/50 object-cover object-[center_15%] shadow-2xl shadow-primary/30 sm:h-56 sm:w-56"
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).style.display = "none";
+            <div
+              role="img"
+              aria-label="Julia"
+              className="h-44 w-44 rounded-full border-4 border-primary/50 shadow-2xl shadow-primary/30 sm:h-56 sm:w-56"
+              style={{
+                backgroundImage: `url(${juliaAsset.url})`,
+                backgroundSize: "190%",
+                backgroundPosition: "center 22%",
+                backgroundRepeat: "no-repeat",
               }}
             />
           </div>
