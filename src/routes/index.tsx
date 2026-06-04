@@ -154,28 +154,42 @@ function Card({ children, className = "" }: { children: React.ReactNode; classNa
   );
 }
 
-function Polaroids() {
-  const rotations = ["-rotate-3", "rotate-2", "-rotate-1", "rotate-3"];
+import juliaAsset from "@/assets/julia.jpeg.asset.json";
+
+const FOTOS_JULIA: Array<{ src: string | null; legenda: string }> = [
+  { src: juliaAsset.url, legenda: "Esses olhos ainda me fazem esquecer o que eu estava pensando." },
+  { src: null, legenda: "Você tem um brilho que é impossível não notar." },
+  { src: null, legenda: "Uma das minhas coisas favoritas no mundo é admirar você." },
+  { src: null, legenda: "E o mais incrível é que sua beleza é só uma parte da pessoa maravilhosa que você é." },
+];
+
+function ApaixonadaPorJulia() {
   return (
     <section className="relative mx-auto max-w-2xl px-5 pb-20">
-      <SectionTitle>Polaroids da gente</SectionTitle>
-      <div className="grid grid-cols-2 gap-4 sm:gap-6">
-        {POLAROIDS.map((p, i) => (
-          <motion.div
+      <SectionTitle>A mulher por quem eu sou apaixonada</SectionTitle>
+      <div className="grid gap-6 sm:grid-cols-2">
+        {FOTOS_JULIA.map((f, i) => (
+          <motion.figure
             key={i}
-            initial={{ opacity: 0, y: 30, rotate: 0 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, delay: i * 0.1 }}
-            whileHover={{ scale: 1.04, rotate: 0 }}
-            className={`${rotations[i % rotations.length]} bg-foreground/95 p-3 pb-5 shadow-2xl shadow-primary/30`}
+            className="overflow-hidden rounded-2xl border border-primary/30 bg-background/50 shadow-2xl shadow-primary/20 backdrop-blur-md"
           >
-            <div className="flex aspect-square items-center justify-center bg-gradient-to-br from-primary/30 to-primary/10 text-5xl">
-              {p.emoji}
+            <div className="relative aspect-[4/5] w-full overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10">
+              {f.src ? (
+                <img src={f.src} alt="" className="h-full w-full object-cover" />
+              ) : (
+                <div className="flex h-full w-full items-center justify-center text-primary/70">
+                  <Heart fill="currentColor" className="h-12 w-12" />
+                </div>
+              )}
             </div>
-            <p className="mt-3 text-center text-sm text-background" style={serif}>{p.legenda}</p>
-            <p className="text-center text-[10px] uppercase tracking-widest text-background/60">{p.data}</p>
-          </motion.div>
+            <figcaption className="p-4 text-center text-sm italic text-foreground/85 sm:text-base" style={serif}>
+              "{f.legenda}"
+            </figcaption>
+          </motion.figure>
         ))}
       </div>
     </section>
@@ -453,8 +467,6 @@ function Index() {
         <p className="mt-4 text-[10px] uppercase tracking-[0.3em] text-foreground/60">juntas e contando</p>
       </section>
 
-      {/* MUSICA */}
-      <Polaroids />
       <Timeline />
       <CartaNamorados />
       <Motivos />
@@ -485,6 +497,9 @@ function Index() {
           ))}
         </div>
       </section>
+
+      {/* APAIXONADA */}
+      <ApaixonadaPorJulia />
 
       {/* MUSICA */}
       <section className="relative mx-auto max-w-2xl px-5 pb-20">
