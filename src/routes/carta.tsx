@@ -48,16 +48,20 @@ function CartaPage() {
             <img
               src={FOTO_JULIA}
               alt="Julia"
-              className="h-44 w-44 rounded-full border-4 border-primary/50 object-cover shadow-2xl shadow-primary/30 sm:h-56 sm:w-56"
+              className="h-44 w-44 rounded-full border-4 border-primary/50 object-cover object-[center_15%] shadow-2xl shadow-primary/30 sm:h-56 sm:w-56"
               onError={(e) => {
                 (e.currentTarget as HTMLImageElement).style.display = "none";
               }}
             />
           </div>
 
-          <Heart fill="currentColor" className="mt-8 h-8 w-8 text-primary" />
+          <p className="mt-6 max-w-md text-sm italic text-foreground/80 sm:text-base" style={serif}>
+            Eu poderia escrever mil cartas, mas ainda me perco olhando esses olhos.
+          </p>
+
+          <Heart fill="currentColor" className="mt-6 h-8 w-8 text-primary" />
           <h1
-            className="mt-4 font-serif text-3xl leading-tight sm:text-5xl"
+            className="mt-3 font-serif text-3xl leading-tight sm:text-5xl"
             style={serif}
           >
             Feliz Dia dos Namorados <span className="text-primary">❤️</span>

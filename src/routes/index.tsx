@@ -518,7 +518,7 @@ function Index() {
         >
           <Heart fill="currentColor" className="mx-auto h-14 w-14 text-primary" />
           <p className="mt-6 font-serif text-xl italic sm:text-2xl md:text-3xl" style={serif}>
-            "Te amo hoje, amanhã e em todas as versões da gente."
+            "Eu te amo hoje, amanhã e em todas as versões da gente."
           </p>
           <p className="mt-5 text-[11px] uppercase tracking-[0.4em] text-foreground/60">— com todo meu coração</p>
         </motion.div>
