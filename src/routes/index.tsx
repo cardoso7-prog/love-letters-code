@@ -182,7 +182,11 @@ function ApaixonadaPorJulia() {
               transition={{ duration: 0.5 }}
             >
               <div className="relative aspect-[4/5] w-full overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10">
-                <img src={f.src} alt="" className="h-full w-full object-cover" />
+                <img
+                  src={f.src}
+                  alt=""
+                  className={`h-full w-full ${i === FOTOS_JULIA.length - 1 ? "object-contain" : "object-cover"}`}
+                />
               </div>
               <figcaption className="p-4 text-center text-sm italic text-foreground/85 sm:text-base" style={serif}>
                 "{f.legenda}"
