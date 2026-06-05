@@ -148,42 +148,65 @@ function Card({ children, className = "" }: { children: React.ReactNode; classNa
 }
 
 import juliaAsset from "@/assets/julia.jpeg.asset.json";
+import julia2Asset from "@/assets/julia-2.png.asset.json";
+import julia3Asset from "@/assets/julia-3.png.asset.json";
+import julia4Asset from "@/assets/julia-4.png.asset.json";
 
-const FOTOS_JULIA: Array<{ src: string | null; legenda: string }> = [
+const FOTOS_JULIA: Array<{ src: string; legenda: string }> = [
   { src: juliaAsset.url, legenda: "Esses olhos ainda me fazem esquecer o que eu estava pensando." },
-  { src: null, legenda: "Você tem um brilho que é impossível não notar." },
-  { src: null, legenda: "Uma das minhas coisas favoritas no mundo é admirar você." },
-  { src: null, legenda: "E o mais incrível é que sua beleza é só uma parte da pessoa maravilhosa que você é." },
+  { src: julia2Asset.url, legenda: "Você consegue ser meu lugar favorito até através de uma tela." },
+  { src: julia3Asset.url, legenda: "Eu poderia passar horas admirando cada detalhe seu e ainda não seria suficiente." },
+  { src: julia4Asset.url, legenda: "E o mais incrível é que seu sorriso sempre consegue melhorar o meu dia." },
 ];
 
 function ApaixonadaPorJulia() {
+  const [i, setI] = useState(0);
+  const proxima = () => setI((p) => (p + 1) % FOTOS_JULIA.length);
+  const f = FOTOS_JULIA[i];
   return (
     <section className="relative mx-auto max-w-2xl px-5 pb-20">
       <SectionTitle>A mulher por quem eu sou apaixonada</SectionTitle>
-      <div className="grid gap-6 sm:grid-cols-2">
-        {FOTOS_JULIA.map((f, i) => (
-          <motion.figure
-            key={i}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay: i * 0.1 }}
-            className="overflow-hidden rounded-2xl border border-primary/30 bg-background/50 shadow-2xl shadow-primary/20 backdrop-blur-md"
-          >
-            <div className="relative aspect-[4/5] w-full overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10">
-              {f.src ? (
+      <div className="mx-auto max-w-md">
+        <button
+          type="button"
+          onClick={proxima}
+          aria-label="Próxima foto"
+          className="group block w-full overflow-hidden rounded-2xl border border-primary/30 bg-background/50 text-left shadow-2xl shadow-primary/20 backdrop-blur-md transition-transform active:scale-[0.98]"
+        >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 1.02 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="relative aspect-[4/5] w-full overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10">
                 <img src={f.src} alt="" className="h-full w-full object-cover" />
-              ) : (
-                <div className="flex h-full w-full items-center justify-center text-primary/70">
-                  <Heart fill="currentColor" className="h-12 w-12" />
-                </div>
-              )}
-            </div>
-            <figcaption className="p-4 text-center text-sm italic text-foreground/85 sm:text-base" style={serif}>
-              "{f.legenda}"
-            </figcaption>
-          </motion.figure>
-        ))}
+              </div>
+              <figcaption className="p-4 text-center text-sm italic text-foreground/85 sm:text-base" style={serif}>
+                "{f.legenda}"
+              </figcaption>
+            </motion.div>
+          </AnimatePresence>
+        </button>
+        <div className="mt-5 flex flex-col items-center gap-3">
+          <div className="flex gap-1.5">
+            {FOTOS_JULIA.map((_, idx) => (
+              <span
+                key={idx}
+                className={`h-1.5 rounded-full transition-all ${idx === i ? "w-6 bg-primary" : "w-1.5 bg-primary/30"}`}
+              />
+            ))}
+          </div>
+          <button
+            onClick={proxima}
+            className="inline-flex items-center gap-2 rounded-full border border-primary/50 bg-primary/20 px-5 py-2 text-sm font-medium text-primary transition-all hover:bg-primary/30 active:scale-95"
+          >
+            <Heart fill="currentColor" className="h-4 w-4" />
+            Próxima foto
+          </button>
+        </div>
       </div>
     </section>
   );
