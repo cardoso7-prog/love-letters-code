@@ -150,7 +150,6 @@ function Card({ children, className = "" }: { children: React.ReactNode; classNa
 import juliaAsset from "@/assets/julia.jpeg.asset.json";
 import julia2Asset from "@/assets/julia-2.png.asset.json";
 import julia3Asset from "@/assets/julia-3.png.asset.json";
-import julia4Asset from "@/assets/julia-4.png.asset.json";
 import juliaOlhos2Asset from "@/assets/julia-olhos-2.jpeg.asset.json";
 
 const FOTOS_JULIA: Array<{ src: string; legenda: string }> = [
