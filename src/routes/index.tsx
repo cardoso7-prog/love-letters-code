@@ -511,7 +511,25 @@ function Index() {
               frameBorder={0}
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
-            />
+          />
+          </div>
+
+          <div className="mt-6 flex flex-col items-center gap-3 text-center">
+            <p className="text-sm font-medium text-foreground/90" style={serif}>
+              Outras músicas que me lembram você
+            </p>
+            <p className="max-w-xs text-xs text-foreground/60">
+              Porque uma música só nunca seria suficiente.
+            </p>
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-primary/50 bg-primary/20 px-5 py-2 text-sm font-medium text-primary transition-all hover:bg-primary/30 active:scale-95"
+            >
+              <Music className="h-4 w-4" />
+              Abrir playlist ❤️
+            </a>
           </div>
         </Card>
       </section>
