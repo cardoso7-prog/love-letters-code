@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { Heart, ArrowLeft } from "lucide-react";
 import bg from "@/assets/romantic-bg.jpg";
-import juliaAsset from "@/assets/julia.jpeg.asset.json";
+import juliaAsset from "@/assets/julia-carta.jpeg.asset.json";
 
 export const Route = createFileRoute("/carta")({
   head: () => ({
