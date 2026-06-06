@@ -150,13 +150,15 @@ function Card({ children, className = "" }: { children: React.ReactNode; classNa
 import juliaAsset from "@/assets/julia.jpeg.asset.json";
 import julia2Asset from "@/assets/julia-2.png.asset.json";
 import julia3Asset from "@/assets/julia-3.png.asset.json";
+import julia4Asset from "@/assets/julia-4.png.asset.json";
 import juliaOlhos2Asset from "@/assets/julia-olhos-2.jpeg.asset.json";
 
 const FOTOS_JULIA: Array<{ src: string; legenda: string }> = [
   { src: juliaAsset.url, legenda: "Esses olhos ainda me fazem esquecer o que eu estava pensando." },
   { src: julia2Asset.url, legenda: "Você consegue ser meu lugar favorito até através de uma tela." },
   { src: julia3Asset.url, legenda: "Eu poderia passar horas admirando cada detalhe seu e ainda não seria suficiente." },
-  { src: juliaOlhos2Asset.url, legenda: "E o mais incrível é que seu sorriso sempre consegue melhorar o meu dia." },
+  { src: julia4Asset.url, legenda: "E o mais incrível é que seu sorriso sempre consegue melhorar o meu dia." },
+  { src: juliaOlhos2Asset.url, legenda: "Esses olhos ainda me fazem esquecer o que eu estava pensando." },
 ];
 
 function ApaixonadaPorJulia() {
