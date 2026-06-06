@@ -5,6 +5,10 @@ import { Heart, ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 import bg from "@/assets/romantic-bg.jpg";
 import rapunzelAsset from "@/assets/rapunzel.jpg.asset.json";
 import cinderelaAsset from "@/assets/cinderela.jpg.asset.json";
+import bacoAsset from "@/assets/baco.jpg.asset.json";
+import anaAsset from "@/assets/ana.jpg.asset.json";
+import reggaeAsset from "@/assets/reggae.jpg.asset.json";
+import felipeAsset from "@/assets/felipe.jpg.asset.json";
 
 export const Route = createFileRoute("/lembrancas")({
   head: () => ({
@@ -52,8 +56,58 @@ const ITEMS: Item[] = [
       "Porque você continua sendo o meu sonho favorito.",
     ],
   },
-  // Espaço reservado para novos itens:
-  // Baco Exu do Blues, Ana Vitória, Reggae, Felipe Neto, e outras referências.
+  {
+    src: bacoAsset.url,
+    emoji: "🎵",
+    titulo: "Baco Exu do Blues",
+    citacao: "Você fez morada onde ninguém conseguia ficar.",
+    texto: [
+      "Talvez seja por isso que eu lembre tanto de você quando escuto Baco.",
+      "Porque, sem perceber, você virou lar para mim.",
+      "Hoje, quando eu penso em paz, conforto e amor, eu penso em você.",
+    ],
+  },
+  {
+    src: anaAsset.url,
+    emoji: "🎤",
+    titulo: "Ana Vitória — Dói Sem Tanto",
+    texto: [
+      "Amar você me ensinou que algumas saudades existem porque existem pessoas que valem a pena sentir falta.",
+      "E mesmo quando a distância aperta, eu continuo escolhendo você.",
+      "Porque ter você na minha vida sempre vale qualquer espera.",
+    ],
+  },
+  {
+    src: reggaeAsset.url,
+    emoji: "🎸",
+    titulo: "Reggae",
+    texto: [
+      "Algumas músicas acalmam a mente.",
+      "Você acalma a minha.",
+      "É engraçado como um estilo musical inteiro consegue me lembrar de uma única pessoa.",
+      "Mas quando o assunto é você, isso acontece o tempo todo.",
+    ],
+  },
+  {
+    src: felipeAsset.url,
+    emoji: "🎥",
+    titulo: "Felipe Neto",
+    texto: [
+      "Tem coisas que automaticamente me fazem lembrar você.",
+      "E o Felipe Neto entrou nessa lista sem nem perceber.",
+      "Toda vez que eu vejo alguma coisa relacionada a ele, eu lembro das nossas conversas e começo a sorrir igual boba.",
+    ],
+  },
+  {
+    emoji: "💌",
+    titulo: "Sempre você",
+    texto: [
+      "Eu procurei você em músicas, filmes, personagens e frases bonitas.",
+      "Mas a verdade é que nenhuma delas consegue explicar completamente o que eu sinto.",
+      "Porque a minha parte favorita continua sendo você.",
+      "Sempre você.",
+    ],
+  },
 ];
 
 function Coracoes() {
