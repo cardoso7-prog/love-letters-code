@@ -23,13 +23,6 @@ const NOME_DELE = "Yasmim";
 const INICIO = new Date("2025-05-27T00:00:00");
 const SPOTIFY_TRACK_ID = "5JAgqLhhRqo5M1Xu7vrLD6";
 
-const TEXTINHOS = [
-  { titulo: "Bom dia, amor", texto: "Acordar sabendo que você existe já faz o meu dia ficar bonito." },
-  { titulo: "Só pra você saber", texto: "Eu te escolho. Todo dia, sem pensar duas vezes." },
-  { titulo: "Pequeno lembrete", texto: "Você é meu lugar favorito do mundo inteiro." },
-  { titulo: "Antes de dormir", texto: "Boa noite, meu amor. Sonha comigo, que eu já tô sonhando com você." },
-];
-
 const TIMELINE = [
   { data: "27/05/2025", titulo: "A gente se conheceu", desc: "O começo de tudo. Eu não sabia, mas minha vida já tinha mudado.", emoji: "✨" },
   { data: "02/06/2025", titulo: "Nossa primeira conversa pessoalmente", desc: "O dia em que eu te vi de perto e tudo começou a ficar ainda mais especial.", emoji: "💌" },
@@ -147,14 +140,12 @@ function Card({ children, className = "" }: { children: React.ReactNode; classNa
   );
 }
 
-import juliaAsset from "@/assets/julia.jpeg.asset.json";
 import julia2Asset from "@/assets/julia-2.png.asset.json";
 import julia3Asset from "@/assets/julia-3.png.asset.json";
 import julia4Asset from "@/assets/julia-4.png.asset.json";
 import juliaOlhos2Asset from "@/assets/julia-olhos-2.jpeg.asset.json";
 
 const FOTOS_JULIA: Array<{ src: string; legenda: string }> = [
-  { src: juliaAsset.url, legenda: "Esses olhos ainda me fazem esquecer o que eu estava pensando." },
   { src: julia2Asset.url, legenda: "Você consegue ser meu lugar favorito até através de uma tela." },
   { src: julia3Asset.url, legenda: "Eu poderia passar horas admirando cada detalhe seu e ainda não seria suficiente." },
   { src: julia4Asset.url, legenda: "E o mais incrível é que seu sorriso sempre consegue melhorar o meu dia." },
@@ -187,7 +178,7 @@ function ApaixonadaPorJulia() {
                 <img
                   src={f.src}
                   alt=""
-                  className={`h-full w-full ${i === FOTOS_JULIA.length - 1 ? "object-contain" : "object-cover"}`}
+                  className="h-full w-full object-cover"
                 />
               </div>
               <figcaption className="p-4 text-center text-sm italic text-foreground/85 sm:text-base" style={serif}>
@@ -496,28 +487,33 @@ function Index() {
       <Sonhos />
       <Curiosidades />
 
-      {/* TEXTINHOS */}
+      {/* LEMBRANCAS */}
       <section className="relative mx-auto max-w-2xl px-5 pb-20">
-        <SectionTitle>Textinhos pra você</SectionTitle>
-        <div className="grid gap-4">
-          {TEXTINHOS.map((m, i) => (
-            <motion.div
-              key={m.titulo}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: i * 0.08 }}
-            >
-              <Card className="p-5">
-                <div className="mb-1 flex items-center gap-2 text-primary">
-                  <Heart fill="currentColor" className="h-3.5 w-3.5" />
-                  <span className="text-[10px] uppercase tracking-[0.3em]">{m.titulo}</span>
-                </div>
-                <p className="text-base text-foreground/85">{m.texto}</p>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+        <SectionTitle>Coisas que me fazem lembrar você</SectionTitle>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <Link
+            to="/lembrancas"
+            className="group relative block w-full overflow-hidden rounded-2xl border border-primary/40 bg-gradient-to-br from-primary/20 via-background/60 to-background/40 p-8 text-left shadow-2xl shadow-primary/20 backdrop-blur-md transition-transform hover:-translate-y-1"
+            style={serif}
+          >
+            <div className="flex flex-col items-center gap-3 text-center">
+              <div className="rounded-full border border-primary/40 bg-primary/20 p-3">
+                <Sparkles className="h-6 w-6 text-primary" />
+              </div>
+              <p className="text-[10px] uppercase tracking-[0.4em] text-primary">Uma coleção pra você</p>
+              <p className="text-2xl sm:text-3xl">Coisas que me fazem lembrar você</p>
+              <p className="max-w-md text-sm italic text-foreground/70">
+                Algumas músicas, personagens e detalhes sempre acabam me levando até você.
+              </p>
+              <p className="text-xs text-foreground/60">Toque para abrir</p>
+            </div>
+          </Link>
+        </motion.div>
       </section>
 
       {/* APAIXONADA */}
