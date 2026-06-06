@@ -487,28 +487,33 @@ function Index() {
       <Sonhos />
       <Curiosidades />
 
-      {/* TEXTINHOS */}
+      {/* LEMBRANCAS */}
       <section className="relative mx-auto max-w-2xl px-5 pb-20">
-        <SectionTitle>Textinhos pra você</SectionTitle>
-        <div className="grid gap-4">
-          {TEXTINHOS.map((m, i) => (
-            <motion.div
-              key={m.titulo}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: i * 0.08 }}
-            >
-              <Card className="p-5">
-                <div className="mb-1 flex items-center gap-2 text-primary">
-                  <Heart fill="currentColor" className="h-3.5 w-3.5" />
-                  <span className="text-[10px] uppercase tracking-[0.3em]">{m.titulo}</span>
-                </div>
-                <p className="text-base text-foreground/85">{m.texto}</p>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+        <SectionTitle>Coisas que me fazem lembrar você</SectionTitle>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <Link
+            to="/lembrancas"
+            className="group relative block w-full overflow-hidden rounded-2xl border border-primary/40 bg-gradient-to-br from-primary/20 via-background/60 to-background/40 p-8 text-left shadow-2xl shadow-primary/20 backdrop-blur-md transition-transform hover:-translate-y-1"
+            style={serif}
+          >
+            <div className="flex flex-col items-center gap-3 text-center">
+              <div className="rounded-full border border-primary/40 bg-primary/20 p-3">
+                <Sparkles className="h-6 w-6 text-primary" />
+              </div>
+              <p className="text-[10px] uppercase tracking-[0.4em] text-primary">Uma coleção pra você</p>
+              <p className="text-2xl sm:text-3xl">Coisas que me fazem lembrar você</p>
+              <p className="max-w-md text-sm italic text-foreground/70">
+                Algumas músicas, personagens e detalhes sempre acabam me levando até você.
+              </p>
+              <p className="text-xs text-foreground/60">Toque para abrir</p>
+            </div>
+          </Link>
+        </motion.div>
       </section>
 
       {/* APAIXONADA */}
