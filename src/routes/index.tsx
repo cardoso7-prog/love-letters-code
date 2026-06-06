@@ -23,13 +23,6 @@ const NOME_DELE = "Yasmim";
 const INICIO = new Date("2025-05-27T00:00:00");
 const SPOTIFY_TRACK_ID = "5JAgqLhhRqo5M1Xu7vrLD6";
 
-const TEXTINHOS = [
-  { titulo: "Bom dia, amor", texto: "Acordar sabendo que você existe já faz o meu dia ficar bonito." },
-  { titulo: "Só pra você saber", texto: "Eu te escolho. Todo dia, sem pensar duas vezes." },
-  { titulo: "Pequeno lembrete", texto: "Você é meu lugar favorito do mundo inteiro." },
-  { titulo: "Antes de dormir", texto: "Boa noite, meu amor. Sonha comigo, que eu já tô sonhando com você." },
-];
-
 const TIMELINE = [
   { data: "27/05/2025", titulo: "A gente se conheceu", desc: "O começo de tudo. Eu não sabia, mas minha vida já tinha mudado.", emoji: "✨" },
   { data: "02/06/2025", titulo: "Nossa primeira conversa pessoalmente", desc: "O dia em que eu te vi de perto e tudo começou a ficar ainda mais especial.", emoji: "💌" },
@@ -147,14 +140,12 @@ function Card({ children, className = "" }: { children: React.ReactNode; classNa
   );
 }
 
-import juliaAsset from "@/assets/julia.jpeg.asset.json";
 import julia2Asset from "@/assets/julia-2.png.asset.json";
 import julia3Asset from "@/assets/julia-3.png.asset.json";
 import julia4Asset from "@/assets/julia-4.png.asset.json";
 import juliaOlhos2Asset from "@/assets/julia-olhos-2.jpeg.asset.json";
 
 const FOTOS_JULIA: Array<{ src: string; legenda: string }> = [
-  { src: juliaAsset.url, legenda: "Esses olhos ainda me fazem esquecer o que eu estava pensando." },
   { src: julia2Asset.url, legenda: "Você consegue ser meu lugar favorito até através de uma tela." },
   { src: julia3Asset.url, legenda: "Eu poderia passar horas admirando cada detalhe seu e ainda não seria suficiente." },
   { src: julia4Asset.url, legenda: "E o mais incrível é que seu sorriso sempre consegue melhorar o meu dia." },
@@ -187,7 +178,7 @@ function ApaixonadaPorJulia() {
                 <img
                   src={f.src}
                   alt=""
-                  className={`h-full w-full ${i === FOTOS_JULIA.length - 1 ? "object-contain" : "object-cover"}`}
+                  className="h-full w-full object-cover"
                 />
               </div>
               <figcaption className="p-4 text-center text-sm italic text-foreground/85 sm:text-base" style={serif}>
