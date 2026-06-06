@@ -9,10 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as LembrancasRouteImport } from './routes/lembrancas'
 import { Route as JuliaRouteImport } from './routes/julia'
 import { Route as CartaRouteImport } from './routes/carta'
 import { Route as IndexRouteImport } from './routes/index'
 
+const LembrancasRoute = LembrancasRouteImport.update({
+  id: '/lembrancas',
+  path: '/lembrancas',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const JuliaRoute = JuliaRouteImport.update({
   id: '/julia',
   path: '/julia',
@@ -33,34 +39,45 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/carta': typeof CartaRoute
   '/julia': typeof JuliaRoute
+  '/lembrancas': typeof LembrancasRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/carta': typeof CartaRoute
   '/julia': typeof JuliaRoute
+  '/lembrancas': typeof LembrancasRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/carta': typeof CartaRoute
   '/julia': typeof JuliaRoute
+  '/lembrancas': typeof LembrancasRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/carta' | '/julia'
+  fullPaths: '/' | '/carta' | '/julia' | '/lembrancas'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/carta' | '/julia'
-  id: '__root__' | '/' | '/carta' | '/julia'
+  to: '/' | '/carta' | '/julia' | '/lembrancas'
+  id: '__root__' | '/' | '/carta' | '/julia' | '/lembrancas'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CartaRoute: typeof CartaRoute
   JuliaRoute: typeof JuliaRoute
+  LembrancasRoute: typeof LembrancasRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/lembrancas': {
+      id: '/lembrancas'
+      path: '/lembrancas'
+      fullPath: '/lembrancas'
+      preLoaderRoute: typeof LembrancasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/julia': {
       id: '/julia'
       path: '/julia'
@@ -89,7 +106,18 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CartaRoute: CartaRoute,
   JuliaRoute: JuliaRoute,
+  LembrancasRoute: LembrancasRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
