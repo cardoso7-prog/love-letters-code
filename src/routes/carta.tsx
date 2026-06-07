@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { Heart, ArrowLeft } from "lucide-react";
 import bg from "@/assets/romantic-bg.jpg";
@@ -54,6 +54,15 @@ function Memorias() {
 }
 
 function CartaPage() {
+  const router = useRouter();
+  const voltar = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (typeof window !== "undefined" && window.history.length > 1) {
+      router.history.back();
+    } else {
+      router.navigate({ to: "/" });
+    }
+  };
   return (
     <main className="relative min-h-screen overflow-hidden bg-background text-foreground">
       <img
