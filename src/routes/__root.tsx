@@ -131,10 +131,10 @@ function RootComponent() {
         <img
           src={nosFundo.url}
           alt=""
-          className="absolute inset-0 h-full w-full scale-110 object-cover opacity-15 blur-2xl"
+          className="absolute inset-0 h-full w-full scale-110 object-cover opacity-60 blur-xl"
         />
-        <div className="absolute inset-0 bg-[oklch(0.18_0.08_300)]/70" />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/15 via-transparent to-primary/20 mix-blend-overlay" />
+        <div className="absolute inset-0 bg-[oklch(0.18_0.08_300)]/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/25 via-primary/10 to-primary/30 mix-blend-overlay" />
       </div>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
