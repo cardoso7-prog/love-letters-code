@@ -17,20 +17,31 @@ export const Route = createFileRoute("/carta")({
 const serif = { fontFamily: "'Playfair Display', Georgia, serif" } as const;
 
 const POLAROIDS = [
-  { emoji: "🌅", legenda: "Nosso primeiro pôr do sol", data: "Verão" },
-  { emoji: "🍦", legenda: "Sorvete às 23h", data: "Aquela noite" },
-  { emoji: "🎡", legenda: "Risada que não acabava", data: "Domingo" },
-  { emoji: "🌧️", legenda: "Chuva e a gente", data: "Inverno" },
+  {
+    emoji: "💞",
+    legenda:
+      "Um dos meus lugares favoritos sempre vai ser qualquer lugar onde eu esteja com você.",
+  },
+  {
+    emoji: "✨",
+    legenda:
+      "Eu guardaria esse momento mil vezes só pra poder viver ele de novo.",
+  },
+  {
+    emoji: "💫",
+    legenda:
+      "Se eu pudesse viver um momento para sempre, provavelmente seria este.",
+  },
 ];
 
 function Memorias() {
-  const rotations = ["-rotate-3", "rotate-2", "-rotate-1", "rotate-3"];
+  const rotations = ["-rotate-3", "rotate-2", "-rotate-1"];
   return (
     <section className="mt-14">
       <h2 className="mb-8 text-center font-serif text-2xl sm:text-3xl" style={serif}>
         Nossas memórias favoritas
       </h2>
-      <div className="grid grid-cols-2 gap-4 sm:gap-6">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-6">
         {POLAROIDS.map((p, i) => (
           <motion.div
             key={i}
@@ -44,8 +55,9 @@ function Memorias() {
             <div className="flex aspect-square items-center justify-center bg-gradient-to-br from-primary/30 to-primary/10 text-5xl">
               {p.emoji}
             </div>
-            <p className="mt-3 text-center text-sm text-background" style={serif}>{p.legenda}</p>
-            <p className="text-center text-[10px] uppercase tracking-widest text-background/60">{p.data}</p>
+            <p className="mt-3 text-center text-xs italic text-background sm:text-sm" style={serif}>
+              "{p.legenda}"
+            </p>
           </motion.div>
         ))}
       </div>
