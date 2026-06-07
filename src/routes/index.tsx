@@ -396,11 +396,10 @@ function Curiosidades() {
 }
 
 function Index() {
-  const [entrou, setEntrou] = useState(false);
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (sessionStorage.getItem("aceitou") === "1") setEntrou(true);
-  }, []);
+  const [entrou, setEntrou] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return sessionStorage.getItem("aceitou") === "1";
+  });
   const t = useTempoJuntos();
   const stats = useMemo(
     () => [
