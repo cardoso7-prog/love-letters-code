@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import nosFundo from "@/assets/nos-fundo.jpeg.asset.json";
 
 function NotFoundComponent() {
   return (
@@ -125,6 +126,16 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      {/* Camada de fundo sutil com foto nossa — fica abaixo de todo o conteúdo */}
+      <div aria-hidden className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+        <img
+          src={nosFundo.url}
+          alt=""
+          className="absolute inset-0 h-full w-full scale-110 object-cover opacity-15 blur-2xl"
+        />
+        <div className="absolute inset-0 bg-[oklch(0.18_0.08_300)]/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/15 via-transparent to-primary/20 mix-blend-overlay" />
+      </div>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
