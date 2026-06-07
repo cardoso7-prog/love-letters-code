@@ -179,13 +179,8 @@ function LembrancasPage() {
   const item = ITEMS[i];
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-background text-foreground">
-      <img
-        src={bg}
-        alt=""
-        className="absolute inset-0 h-full w-full object-cover opacity-30"
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
+    <main className="relative min-h-screen overflow-hidden text-foreground">
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background/40" />
       <Coracoes />
 
       <div className="relative mx-auto max-w-2xl px-5 py-10">
