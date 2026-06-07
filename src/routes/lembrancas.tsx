@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 import { Heart, ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
@@ -140,6 +140,15 @@ function Coracoes() {
 }
 
 function LembrancasPage() {
+  const router = useRouter();
+  const voltar = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (typeof window !== "undefined" && window.history.length > 1) {
+      router.history.back();
+    } else {
+      router.navigate({ to: "/" });
+    }
+  };
   const [i, setI] = useState(0);
   const total = ITEMS.length;
   const proxima = () => setI((p) => (p + 1) % total);
