@@ -9,6 +9,8 @@ import bacoAsset from "@/assets/baco.jpg.asset.json";
 import anaAsset from "@/assets/ana.jpg.asset.json";
 import reggaeAsset from "@/assets/reggae.jpg.asset.json";
 import felipeAsset from "@/assets/felipe.jpg.asset.json";
+import stitchAsset from "@/assets/stitch.jpg.asset.json";
+import buqueAsset from "@/assets/buque.avif.asset.json";
 
 export const Route = createFileRoute("/lembrancas")({
   head: () => ({
@@ -96,6 +98,27 @@ const ITEMS: Item[] = [
       "Tem coisas que automaticamente me fazem lembrar você.",
       "E o Felipe Neto entrou nessa lista sem nem perceber.",
       "Toda vez que eu vejo alguma coisa relacionada a ele, eu lembro das nossas conversas e começo a sorrir igual boba.",
+    ],
+  },
+  {
+    src: stitchAsset.url,
+    emoji: "💙",
+    titulo: "Stitch",
+    texto: [
+      "Assim como a Lilo acolheu o Stitch, você me acolheu com todos os meus defeitos e me fez querer ser alguém melhor.",
+    ],
+  },
+  {
+    src: buqueAsset.url,
+    emoji: "💐",
+    titulo: "Buquê",
+    texto: [
+      "Assim como esse buquê de rosas brancas e lírios roxos, o que sinto por você é o amor mais puro, sincero e cheio de carinho que já existiu em mim.",
+      "Cada rosa branca representa a certeza de um amor incondicional e para sempre, enquanto os lírios roxos representam toda a admiração que eu sinto por você e o quanto você é única na minha vida.",
+      "Você é o meu recomeço, a minha paz e uma das melhores coisas que já me aconteceram.",
+      "O meu maior sonho é um dia poder entregar um buquê exatamente assim nas suas mãos e ver o seu sorriso de perto.",
+      "Enquanto esse dia não chega, guarde essa promessa no seu coração.",
+      "Eu amo você.",
     ],
   },
   {
